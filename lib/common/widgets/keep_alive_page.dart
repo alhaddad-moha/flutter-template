@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+/// This widget is used to wrap a page to keep it alive.
+/// It is used to keep the state of the page when navigating between pages.
+class KeepAlivePage extends StatefulWidget {
+  const KeepAlivePage({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  _KeepAlivePageState createState() => _KeepAlivePageState();
+}
+
+class _KeepAlivePageState extends State<KeepAlivePage>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+
+    return widget.child;
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+}
